@@ -8,7 +8,7 @@ export class TodosController {
   constructor(readonly todoservice: TodosService) {}
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
+  findOne(@Param('id') id: number) {
     return this.todoservice.findOne(id);
   }
 
@@ -23,12 +23,12 @@ export class TodosController {
   }
 
   @Patch(':id')
-  updateTodo(@Param('id') id: string, @Body() todo: CreateTotoDto) {
+  updateTodo(@Param('id') id: number, @Body() todo: CreateTotoDto) {
     return this.todoservice.update(id, todo);
   }
 
   @Delete(':id')
-  deleteTodo(@Param('id') id: string) {
+  deleteTodo(@Param('id') id: number) {
     return this.todoservice.delete(id);
   }
 }
